@@ -1,0 +1,438 @@
+# depslib dependency file v1.0
+1619661997 source:c:\users\mohamed\desktop\projetc\projetc\projetc\main.c
+	<string.h>
+	<tchar.h>
+	"myconio.h"
+	<stdio.h>
+	<windows.h>
+	"structure.h"
+	"validation.h"
+	"saisie.h"
+
+1617404014 c:\users\mohamed\desktop\projetc\projetc\projetc\myconio.h
+	<conio.h>
+	<stdio.h>
+	<stdlib.h>
+	<stdarg.h>
+	<windef.h>
+	<winbase.h>
+	<wincon.h>
+	<myconio.cpp>
+
+1619230672 c:\users\mohamed\desktop\projetc\projetc\projetc\structure.h
+
+1619314319 c:\users\mohamed\desktop\projetc\projetc\projetc\validation.h
+
+1619661920 c:\users\mohamed\desktop\projetc\projetc\projetc\saisie.h
+	"structure.h"
+
+1619742703 source:c:\users\mohamed\desktop\creation ok originale\projetc\projetc\main.c
+	<string.h>
+	<tchar.h>
+	"myconio.h"
+	<stdio.h>
+	<windows.h>
+	"structure.h"
+	"validation.h"
+	"saisie.h"
+
+1617404014 c:\users\mohamed\desktop\creation ok originale\projetc\projetc\myconio.h
+	<conio.h>
+	<stdio.h>
+	<stdlib.h>
+	<stdarg.h>
+	<windef.h>
+	<winbase.h>
+	<wincon.h>
+	<myconio.cpp>
+
+1619230672 c:\users\mohamed\desktop\creation ok originale\projetc\projetc\structure.h
+
+1619314319 c:\users\mohamed\desktop\creation ok originale\projetc\projetc\validation.h
+
+1619742138 c:\users\mohamed\desktop\creation ok originale\projetc\projetc\saisie.h
+	"structure.h"
+
+1619756969 source:c:\users\mohamed\desktop\creation maj ajt sup(tete queue pos)\projetc\projetc\main.c
+	<string.h>
+	<tchar.h>
+	"myconio.h"
+	<stdio.h>
+	<windows.h>
+	"structure.h"
+	"validation.h"
+	"saisie.h"
+
+1617404014 c:\users\mohamed\desktop\creation maj ajt sup(tete queue pos)\projetc\projetc\myconio.h
+	<conio.h>
+	<stdio.h>
+	<stdlib.h>
+	<stdarg.h>
+	<windef.h>
+	<winbase.h>
+	<wincon.h>
+	<myconio.cpp>
+
+1619230672 c:\users\mohamed\desktop\creation maj ajt sup(tete queue pos)\projetc\projetc\structure.h
+
+1619314319 c:\users\mohamed\desktop\creation maj ajt sup(tete queue pos)\projetc\projetc\validation.h
+
+1619756548 c:\users\mohamed\desktop\creation maj ajt sup(tete queue pos)\projetc\projetc\saisie.h
+	"structure.h"
+
+1619817814 source:f:\creation  + maj ajt sup(tete queue pos)+maj sup(sauf indicatif)\projetc\projetc\main.c
+	<string.h>
+	<tchar.h>
+	"myconio.h"
+	<stdio.h>
+	<windows.h>
+	"structure.h"
+	"validation.h"
+	"saisie.h"
+
+1617404016 f:\creation  + maj ajt sup(tete queue pos)+maj sup(sauf indicatif)\projetc\projetc\myconio.h
+	<conio.h>
+	<stdio.h>
+	<stdlib.h>
+	<stdarg.h>
+	<windef.h>
+	<winbase.h>
+	<wincon.h>
+	<myconio.cpp>
+
+1619230674 f:\creation  + maj ajt sup(tete queue pos)+maj sup(sauf indicatif)\projetc\projetc\structure.h
+
+1619314320 f:\creation  + maj ajt sup(tete queue pos)+maj sup(sauf indicatif)\projetc\projetc\validation.h
+
+1619819872 f:\creation  + maj ajt sup(tete queue pos)+maj sup(sauf indicatif)\projetc\projetc\saisie.h
+	"structure.h"
+
+1619834528 source:c:\users\mohamed\desktop\creation(sauf date)  + maj ajt +maj sup\projetc\projetc\main.c
+	<string.h>
+	<tchar.h>
+	"myconio.h"
+	<stdio.h>
+	<windows.h>
+	"structure.h"
+	"validation.h"
+	"saisie.h"
+
+1617400416 c:\users\mohamed\desktop\creation(sauf date)  + maj ajt +maj sup\projetc\projetc\myconio.h
+	<conio.h>
+	<stdio.h>
+	<stdlib.h>
+	<stdarg.h>
+	<windef.h>
+	<winbase.h>
+	<wincon.h>
+	<myconio.cpp>
+
+1619834471 c:\users\mohamed\desktop\creation(sauf date)  + maj ajt +maj sup\projetc\projetc\structure.h
+
+1619310720 c:\users\mohamed\desktop\creation(sauf date)  + maj ajt +maj sup\projetc\projetc\validation.h
+
+1619831899 c:\users\mohamed\desktop\creation(sauf date)  + maj ajt +maj sup\projetc\projetc\saisie.h
+	"structure.h"
+
+1619902152 source:c:\users\mohamed\desktop\creation(sauf date)  + maj ajt +maj sup+maj modi\projetc\projetc\main.c
+	<string.h>
+	<tchar.h>
+	"myconio.h"
+	<stdio.h>
+	<windows.h>
+	"structure.h"
+	"validation.h"
+	"saisie.h"
+
+1617400416 c:\users\mohamed\desktop\creation(sauf date)  + maj ajt +maj sup+maj modi\projetc\projetc\myconio.h
+	<conio.h>
+	<stdio.h>
+	<stdlib.h>
+	<stdarg.h>
+	<windef.h>
+	<winbase.h>
+	<wincon.h>
+	<myconio.cpp>
+
+1619896303 c:\users\mohamed\desktop\creation(sauf date)  + maj ajt +maj sup+maj modi\projetc\projetc\structure.h
+
+1619310720 c:\users\mohamed\desktop\creation(sauf date)  + maj ajt +maj sup+maj modi\projetc\projetc\validation.h
+
+1619902739 c:\users\mohamed\desktop\creation(sauf date)  + maj ajt +maj sup+maj modi\projetc\projetc\saisie.h
+	"structure.h"
+
+1620000855 source:c:\users\mohamed\desktop\creation(sauf date)  + maj ajt +maj sup+maj modi+recherche(sauf indi + sauf tri)\projetc\projetc\main.c
+	<string.h>
+	<tchar.h>
+	"myconio.h"
+	<stdio.h>
+	<windows.h>
+	"structure.h"
+	"validation.h"
+	"saisie.h"
+
+1617400416 c:\users\mohamed\desktop\creation(sauf date)  + maj ajt +maj sup+maj modi+recherche(sauf indi + sauf tri)\projetc\projetc\myconio.h
+	<conio.h>
+	<stdio.h>
+	<stdlib.h>
+	<stdarg.h>
+	<windef.h>
+	<winbase.h>
+	<wincon.h>
+	<myconio.cpp>
+
+1619991185 c:\users\mohamed\desktop\creation(sauf date)  + maj ajt +maj sup+maj modi+recherche(sauf indi + sauf tri)\projetc\projetc\structure.h
+
+1619310720 c:\users\mohamed\desktop\creation(sauf date)  + maj ajt +maj sup+maj modi+recherche(sauf indi + sauf tri)\projetc\projetc\validation.h
+
+1619999750 c:\users\mohamed\desktop\creation(sauf date)  + maj ajt +maj sup+maj modi+recherche(sauf indi + sauf tri)\projetc\projetc\saisie.h
+	"structure.h"
+
+1620092792 source:c:\users\mohamed\desktop\creation(sauf date)  + maj ajt +maj sup+maj modi+recherche(sauf indi + sauf tri)+ recup+enreg\projetc\projetc\main.c
+	<string.h>
+	<tchar.h>
+	"myconio.h"
+	<stdio.h>
+	<windows.h>
+	"structure.h"
+	"validation.h"
+	"saisie.h"
+
+1617400416 c:\users\mohamed\desktop\creation(sauf date)  + maj ajt +maj sup+maj modi+recherche(sauf indi + sauf tri)+ recup+enreg\projetc\projetc\myconio.h
+	<conio.h>
+	<stdio.h>
+	<stdlib.h>
+	<stdarg.h>
+	<windef.h>
+	<winbase.h>
+	<wincon.h>
+	<myconio.cpp>
+
+1619991185 c:\users\mohamed\desktop\creation(sauf date)  + maj ajt +maj sup+maj modi+recherche(sauf indi + sauf tri)+ recup+enreg\projetc\projetc\structure.h
+
+1619310720 c:\users\mohamed\desktop\creation(sauf date)  + maj ajt +maj sup+maj modi+recherche(sauf indi + sauf tri)+ recup+enreg\projetc\projetc\validation.h
+
+1620090433 c:\users\mohamed\desktop\creation(sauf date)  + maj ajt +maj sup+maj modi+recherche(sauf indi + sauf tri)+ recup+enreg\projetc\projetc\saisie.h
+	"structure.h"
+
+1620263962 source:c:\users\mohamed\desktop\creation(sauf date)  + maj ajt +maj sup+maj modi+recherche(sauf indi + sauf tri)+ recup+enreg+aff non complet\projetc\projetc\main.c
+	<string.h>
+	<tchar.h>
+	"myconio.h"
+	<stdio.h>
+	<windows.h>
+	"structure.h"
+	"validation.h"
+	"saisie.h"
+
+1617400416 c:\users\mohamed\desktop\creation(sauf date)  + maj ajt +maj sup+maj modi+recherche(sauf indi + sauf tri)+ recup+enreg+aff non complet\projetc\projetc\myconio.h
+	<conio.h>
+	<stdio.h>
+	<stdlib.h>
+	<stdarg.h>
+	<windef.h>
+	<winbase.h>
+	<wincon.h>
+	<myconio.cpp>
+
+1619991185 c:\users\mohamed\desktop\creation(sauf date)  + maj ajt +maj sup+maj modi+recherche(sauf indi + sauf tri)+ recup+enreg+aff non complet\projetc\projetc\structure.h
+
+1619310720 c:\users\mohamed\desktop\creation(sauf date)  + maj ajt +maj sup+maj modi+recherche(sauf indi + sauf tri)+ recup+enreg+aff non complet\projetc\projetc\validation.h
+
+1620263874 c:\users\mohamed\desktop\creation(sauf date)  + maj ajt +maj sup+maj modi+recherche(sauf indi + sauf tri)+ recup+enreg+aff non complet\projetc\projetc\saisie.h
+	"structure.h"
+
+1620263962 source:c:\users\mohamed\desktop\creation(sauf date)  + maj ajt +maj sup+maj modi+recherche(sauf indi + sauf tri)+ recup+enreg+aff (sauf tri)\projetc\projetc\main.c
+	<string.h>
+	<tchar.h>
+	"myconio.h"
+	<stdio.h>
+	<windows.h>
+	"structure.h"
+	"validation.h"
+	"saisie.h"
+
+1617400416 c:\users\mohamed\desktop\creation(sauf date)  + maj ajt +maj sup+maj modi+recherche(sauf indi + sauf tri)+ recup+enreg+aff (sauf tri)\projetc\projetc\myconio.h
+	<conio.h>
+	<stdio.h>
+	<stdlib.h>
+	<stdarg.h>
+	<windef.h>
+	<winbase.h>
+	<wincon.h>
+	<myconio.cpp>
+
+1620265532 c:\users\mohamed\desktop\creation(sauf date)  + maj ajt +maj sup+maj modi+recherche(sauf indi + sauf tri)+ recup+enreg+aff (sauf tri)\projetc\projetc\structure.h
+
+1619310720 c:\users\mohamed\desktop\creation(sauf date)  + maj ajt +maj sup+maj modi+recherche(sauf indi + sauf tri)+ recup+enreg+aff (sauf tri)\projetc\projetc\validation.h
+
+1620272932 c:\users\mohamed\desktop\creation(sauf date)  + maj ajt +maj sup+maj modi+recherche(sauf indi + sauf tri)+ recup+enreg+aff (sauf tri)\projetc\projetc\saisie.h
+	"structure.h"
+
+1620345256 source:f:\nouveau dossier (2)\creation(sauf date)  + maj ajt +maj sup+maj modi+recherche(sauf indi + sauf tri)+ recup+enreg+aff (sauf tri)\projetc\projetc\main.c
+	<string.h>
+	<tchar.h>
+	"myconio.h"
+	<stdio.h>
+	<windows.h>
+	"structure.h"
+	"validation.h"
+	"saisie.h"
+
+1617400416 f:\nouveau dossier (2)\creation(sauf date)  + maj ajt +maj sup+maj modi+recherche(sauf indi + sauf tri)+ recup+enreg+aff (sauf tri)\projetc\projetc\myconio.h
+	<conio.h>
+	<stdio.h>
+	<stdlib.h>
+	<stdarg.h>
+	<windef.h>
+	<winbase.h>
+	<wincon.h>
+	<myconio.cpp>
+
+1620345368 f:\nouveau dossier (2)\creation(sauf date)  + maj ajt +maj sup+maj modi+recherche(sauf indi + sauf tri)+ recup+enreg+aff (sauf tri)\projetc\projetc\structure.h
+
+1619310720 f:\nouveau dossier (2)\creation(sauf date)  + maj ajt +maj sup+maj modi+recherche(sauf indi + sauf tri)+ recup+enreg+aff (sauf tri)\projetc\projetc\validation.h
+
+1620272934 f:\nouveau dossier (2)\creation(sauf date)  + maj ajt +maj sup+maj modi+recherche(sauf indi + sauf tri)+ recup+enreg+aff (sauf tri)\projetc\projetc\saisie.h
+	"structure.h"
+
+1621472119 source:c:\users\mohamed\desktop\mta3 wa9tili f sbeh nejib majech\nouveau dossier (2)\creation(sauf date)  + maj ajt +maj sup+maj modi+recherche(sauf indi + sauf tri)+ recup+enreg+aff (sauf tri)\projetc\projetc\main.c
+	<wingdi.h>
+	<string.h>
+	<tchar.h>
+	"myconio.h"
+	<stdio.h>
+	<windows.h>
+	"structure.h"
+	"validation.h"
+	"saisie.h"
+
+1617400416 c:\users\mohamed\desktop\mta3 wa9tili f sbeh nejib majech\nouveau dossier (2)\creation(sauf date)  + maj ajt +maj sup+maj modi+recherche(sauf indi + sauf tri)+ recup+enreg+aff (sauf tri)\projetc\projetc\myconio.h
+	<conio.h>
+	<stdio.h>
+	<stdlib.h>
+	<stdarg.h>
+	<windef.h>
+	<winbase.h>
+	<wincon.h>
+	<myconio.cpp>
+
+1620439760 c:\users\mohamed\desktop\mta3 wa9tili f sbeh nejib majech\nouveau dossier (2)\creation(sauf date)  + maj ajt +maj sup+maj modi+recherche(sauf indi + sauf tri)+ recup+enreg+aff (sauf tri)\projetc\projetc\structure.h
+
+1619310720 c:\users\mohamed\desktop\mta3 wa9tili f sbeh nejib majech\nouveau dossier (2)\creation(sauf date)  + maj ajt +maj sup+maj modi+recherche(sauf indi + sauf tri)+ recup+enreg+aff (sauf tri)\projetc\projetc\validation.h
+
+1621470130 c:\users\mohamed\desktop\mta3 wa9tili f sbeh nejib majech\nouveau dossier (2)\creation(sauf date)  + maj ajt +maj sup+maj modi+recherche(sauf indi + sauf tri)+ recup+enreg+aff (sauf tri)\projetc\projetc\saisie.h
+	"structure.h"
+
+1622144120 source:d:\projetc\projetc\main.c
+	<wingdi.h>
+	<string.h>
+	<tchar.h>
+	"myconio.h"
+	<stdio.h>
+	<windows.h>
+	"structure.h"
+	"validation.h"
+	"saisie.h"
+
+1617400416 d:\projetc\projetc\myconio.h
+	<conio.h>
+	<stdio.h>
+	<stdlib.h>
+	<stdarg.h>
+	<windef.h>
+	<winbase.h>
+	<wincon.h>
+	<myconio.cpp>
+
+1620439760 d:\projetc\projetc\structure.h
+
+1619310720 d:\projetc\projetc\validation.h
+
+1621474007 d:\projetc\projetc\saisie.h
+	"structure.h"
+
+1622415602 source:c:\users\mohamed\desktop\projetc\main.c
+	<wingdi.h>
+	<string.h>
+	<tchar.h>
+	"myconio.h"
+	<stdio.h>
+	<windows.h>
+	"structure.h"
+	"validation.h"
+	"saisie.h"
+
+1617400416 c:\users\mohamed\desktop\projetc\myconio.h
+	<conio.h>
+	<stdio.h>
+	<stdlib.h>
+	<stdarg.h>
+	<windef.h>
+	<winbase.h>
+	<wincon.h>
+	<myconio.cpp>
+
+1620439760 c:\users\mohamed\desktop\projetc\structure.h
+
+1619310720 c:\users\mohamed\desktop\projetc\validation.h
+
+1622339910 c:\users\mohamed\desktop\projetc\saisie.h
+	"structure.h"
+
+1622416065 source:c:\users\user\desktop\projetc\main.c
+	<wingdi.h>
+	<string.h>
+	<tchar.h>
+	"myconio.h"
+	<stdio.h>
+	<windows.h>
+	"structure.h"
+	"validation.h"
+	"saisie.h"
+
+1622416065 c:\users\user\desktop\projetc\myconio.h
+	<conio.h>
+	<stdio.h>
+	<stdlib.h>
+	<stdarg.h>
+	<windef.h>
+	<winbase.h>
+	<wincon.h>
+	<myconio.cpp>
+
+1622416065 c:\users\user\desktop\projetc\structure.h
+
+1622416065 c:\users\user\desktop\projetc\validation.h
+
+1622416065 c:\users\user\desktop\projetc\saisie.h
+	"structure.h"
+
+1622416065 source:d:\projetc\main.c
+	<wingdi.h>
+	<string.h>
+	<tchar.h>
+	"myconio.h"
+	<stdio.h>
+	<windows.h>
+	"structure.h"
+	"validation.h"
+	"saisie.h"
+
+1622416065 d:\projetc\myconio.h
+	<conio.h>
+	<stdio.h>
+	<stdlib.h>
+	<stdarg.h>
+	<windef.h>
+	<winbase.h>
+	<wincon.h>
+	<myconio.cpp>
+
+1622416065 d:\projetc\structure.h
+
+1622416065 d:\projetc\validation.h
+
+1622416065 d:\projetc\saisie.h
+	"structure.h"
+

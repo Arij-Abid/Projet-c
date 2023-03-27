@@ -1,0 +1,1603 @@
+#ifndef SAISIE_H_INCLUDED
+#define SAISIE_H_INCLUDED
+#include"structure.h"
+HWND  zone_aff,contact,num_contact,aff_tout,hwnd,ind,a,b,d,f,h,i,q,k,m,o,s,t,y,z,st_nouvelle_num, new_num, modif_adresse,st_adresse,modif_tel,ajt_t,ajt_q,ajt_pos,sup_pos,sup_tel,sup_ville,sup_ind,textbox,num,nom,prenom,jour,mois,annee,rue,ville,code_pos,mail,position,aff_rang,aff_num,aff_nom,aff_ind,aff_prenom,aff_rue,aff_ville,aff_code_pos,aff_mail,aff_date;
+char textsaved[20],nouveau_num[20],ancien_num[20],num_test_adress[10];
+adr nvadresse,aff_adr;
+int pos,taille;
+int test_jour,test_mois,test_annee;
+repertoire rep;
+int ok=0;
+int v_rec=0;
+
+
+date dn;
+liste l=NULL;
+/******************Fonction Affiche2******************/
+void affiche2(liste l)
+{
+ if(l==NULL)
+  printf("LISTE VIDE");
+ else
+ {
+    printf("\nTel\t\tNom\tPrenom\t\tDate de naissance\tAdresse\t\t\tEmail\n\n");
+    while(l)
+    {
+        printf("%s\t%s\t%s\t\t\t%s %s %s\t%s\n",l->info.numtel,l->info.nom,l->info.prenom,l->info.adresse.rue,l->info.adresse.ville,l->info.adresse.codep,l->info.email);
+        l=l->suiv;
+    }
+ }
+}
+
+
+
+/******************insertion tete*****************************/
+liste insere_tete(liste l ,repertoire rep)
+{
+    liste p;
+    p=(struct cellule*)malloc(sizeof(struct cellule1));
+    p->suiv=l;
+    p->info=rep;
+    l=p;
+    return l;
+}
+
+/******************insertion qqueue**********************/
+liste insere_queue(liste l,repertoire rep)
+{
+    liste p,q=l;
+    if(l==NULL)
+        l=insere_tete(l,rep);
+    else
+    {
+        while(q->suiv)
+            q=q->suiv;
+        p=malloc(sizeof(struct cellule1));
+        p->info=rep;
+        p->suiv=NULL;
+        q->suiv=p;
+
+    }
+return l;
+}
+
+/******************insertion Position *****************************/
+liste insere_pos(liste l,repertoire rep,int pos)
+{
+    int cp=1;
+    liste p,q=l;
+    while(cp<pos-1)
+    {
+        cp++;
+        q=q->suiv;
+    }
+    p=malloc(sizeof(struct cellule1));
+    p->info=rep;
+    p->suiv=q->suiv;
+    q->suiv=p;
+    return l;
+}
+
+
+
+/*******taille*******/
+int taille_liste(liste l)
+{
+    int n=0;
+    while(l)
+    {
+        n++;
+        l=l->suiv;
+    }
+    return n;
+}
+
+
+
+/******************Fonction Valide Email******************/
+
+int verif_mail(char x[])
+{
+    int i,rep=0,j;
+    for (j=0;j<strlen(x);j++)
+    {
+        if (x[j]=='@')
+            rep++;
+    }
+    if (rep!=1)
+        return 0;
+    else
+        if (x[1]=='@')
+            return 0;
+        else
+            for(i=1;i<strlen(x)-5;i++)
+            {
+                if (x[i]=='@')
+                    return 1;
+            }
+}
+
+
+
+
+
+
+liste recherche_tel(liste l, char tab[])
+{
+    liste p=l;
+    while(p)
+    {
+        if(strcmp(p->info.numtel,tab)==0)
+            return p;
+        p=p->suiv;
+    }
+    return NULL;
+}
+
+
+
+liste saisie_creation_avec_position (liste l)
+{
+repertoire reper;
+
+//int test=0;
+
+
+
+
+
+
+                        GetWindowText(num,textsaved,20); // c: text fiel ; rep.numtel : placement d'enregistrement ; 20 : 20-1=19 le nombre des caractéres lire
+                      if(strlen(textsaved)!=8 || strlen(textsaved)==0 || recherche_tel(l,textsaved))
+                      {
+
+                          MessageBox(hwnd,"le numéro est < à 8 ou  le numéro est déja exsit ou le champ numéro est vide","Erreur Numéro",MB_OK);
+
+                      }
+                      else
+                      {
+                        GetWindowText(num,reper.numtel,20);
+                        puts(reper.numtel);
+
+    GetWindowText(nom,textsaved,20);
+    if(strlen(textsaved)==0)
+    {
+        MessageBox(hwnd,"Champ vide","Erreur nom",MB_OK);
+
+    }
+    else
+    {
+        GetWindowText(nom,reper.nom,20);
+        puts(reper.nom);
+        GetWindowText(prenom,reper.prenom,20);
+    if(strlen(reper.prenom)==0)
+    {
+        MessageBox(hwnd,"Champ vide","Erreur Prenom",MB_OK);
+    }
+    else
+    {
+        GetWindowText(prenom,reper.prenom,20);
+        puts(reper.prenom);
+        GetWindowText(rue,textsaved,20);
+    if(strlen(textsaved)==0)
+    {
+        MessageBox(hwnd,"Champ vide","Erreur Rue",MB_OK);
+    }
+    else
+    {
+        GetWindowText(rue,reper.adresse.rue,20);
+        puts(reper.adresse.rue);
+        GetWindowText(ville,textsaved,20);
+    if(strlen(textsaved)==0)
+    {
+        MessageBox(hwnd,"Champ vide","Erreur Ville",MB_OK);
+    }
+    else
+    {
+        GetWindowText(ville,reper.adresse.ville,20);
+        puts(reper.adresse.ville);
+        GetWindowText(code_pos,textsaved,20);
+    if(strlen(textsaved)==0 || strlen(textsaved)!=4)
+    {
+        MessageBox(hwnd," Code postal < à 4 ou Champ vide","Erreur Code Postal",MB_OK);
+    }
+    else
+    {
+        GetWindowText(code_pos,reper.adresse.codep,20);
+        puts(reper.adresse.codep);
+        GetWindowText(mail,textsaved,20);
+
+        if(verif_mail(textsaved)!=1)
+            MessageBox(hwnd,"votre E-Mail non valide","erreur",MB_OK);
+       else
+       {
+
+
+           GetWindowText(mail,reper.email,20);
+           puts(reper.email);
+           taille=taille_liste(l);
+           GetWindowText(position,textsaved,20); // c: text fiel ; rep.numtel : placement d'enregistrement ; 20 : 20-1=19 le nombre des caractéres lire
+
+                      if(atoi(textsaved)>taille+1 || atoi(textsaved)==0  || strlen(textsaved)==0 )
+                      {
+                          MessageBox(hwnd,"position erroné","Erreur position",MB_OK);
+                      }
+                      else
+                      {
+                          GetWindowText(position,textsaved,20);
+                          pos=atoi(textsaved);
+                        //printf("%d",pos);
+                        if(pos==1)
+        {
+            l=insere_tete(l,reper);
+            MessageBox(hwnd,"creation scuceés tete","creation",MB_OK);
+            //demande_ajouter_nouvelle_contact();
+
+
+
+        }
+
+        else
+            if(pos==taille+1)
+
+            {
+                                l=insere_queue(l,reper);
+                                MessageBox(hwnd,"creation scuceés queque","creation",MB_OK);
+                                //demande_ajouter_nouvelle_contact();
+
+            }
+            else
+            {
+                l=insere_pos(l,reper,pos);
+                MessageBox(hwnd,"creation scuceés en position","creation",MB_OK);
+                //demande_ajouter_nouvelle_contact();
+
+
+            }
+
+
+                //printf("\n%d\n",t);
+
+
+
+
+                      }
+           //test=1;
+
+       }
+
+
+    }
+    }
+    }
+    }
+
+
+
+    }
+
+                      }
+
+
+
+
+
+
+                      //return 0;
+
+
+
+
+
+
+/*******************nom**********/
+
+/*
+
+        GetWindowText(nom,reper.nom,20);
+    if(strlen(reper.nom)==0)
+    {
+        MessageBox(hwnd,"Champ vide","Erreur nom",MB_OK);
+
+    }
+    else
+    {
+        //GetWindowText(nom,reper.nom,20);
+        puts(reper.nom);
+    }
+
+
+
+/***********prenom********/
+
+
+/*
+    GetWindowText(nom,reper.prenom,20);
+    if(strlen(reper.prenom)==0)
+    {
+        MessageBox(hwnd,"Champ vide","Erreur Prenom",MB_OK);
+    }
+    else
+    {
+       // GetWindowText(prenom,reper.prenom,20);
+        puts(reper.prenom);
+    }
+
+
+
+/*****date naissance*******/
+
+
+
+/*****rue****/
+
+/*
+
+    GetWindowText(rue,textsaved,20);
+    if(strlen(textsaved)==0)
+    {
+        MessageBox(hwnd,"Champ vide","Erreur Rue",MB_OK);
+    }
+    else
+    {
+        GetWindowText(rue,reper.adresse.rue,20);
+        puts(reper.adresse.rue);
+    }
+
+
+/****** ville********/
+/*
+
+    GetWindowText(ville,textsaved,20);
+    if(strlen(textsaved)==0)
+    {
+        MessageBox(hwnd,"Champ vide","Erreur Ville",MB_OK);
+    }
+    else
+    {
+        GetWindowText(ville,reper.adresse.ville,20);
+        puts(reper.adresse.ville);
+    }
+
+
+
+
+/*****code_posatl********/
+
+/*
+
+
+    GetWindowText(code_pos,textsaved,20);
+    if(strlen(textsaved)==0 || strlen(textsaved)!=4)
+    {
+        MessageBox(hwnd," Code postal < à 4 ou Champ vide","Erreur Code Postal",MB_OK);
+    }
+    else
+    {
+        GetWindowText(code_pos,reper.adresse.codep,20);
+        puts(reper.adresse.codep);
+
+    }
+
+
+
+/******EMAIl*********/
+/*
+
+
+        GetWindowText(mail,textsaved,20);
+
+        if(verif_mail(textsaved)!=1)
+            MessageBox(hwnd,"votre E-Mail non valide","erreur",MB_OK);
+       else
+           GetWindowText(mail,reper.email,20);
+           puts(reper.email);
+
+*/
+
+    //if(test==1)
+    //{
+
+
+      //return reper;
+//}
+return l;
+
+}
+
+
+
+
+
+
+
+void demande_ajouter_nouvelle_contact()
+{
+
+
+                    if (MessageBox(hwnd,"Vous voulez ajouter nouvelle contact ?", "Demande d'ajouter", MB_YESNO | MB_ICONQUESTION ) == IDYES)
+                {
+
+
+                    DestroyWindow(a);
+             DestroyWindow(b);
+             DestroyWindow(num);
+             DestroyWindow(d);
+             DestroyWindow(nom);
+             DestroyWindow(f);
+             DestroyWindow(prenom);
+                DestroyWindow(z);
+             DestroyWindow(jour);
+             DestroyWindow(mois);
+             DestroyWindow(annee);
+             DestroyWindow(h);
+             DestroyWindow(i);
+             DestroyWindow(rue);
+             DestroyWindow(k);
+             DestroyWindow(ville);
+             DestroyWindow(m);
+              DestroyWindow(code_pos);
+             DestroyWindow(o);
+             DestroyWindow(mail);
+             DestroyWindow(y);
+             DestroyWindow(position);
+             DestroyWindow(s);
+             DestroyWindow(t);
+             DestroyWindow(ind);
+             DestroyWindow(sup_pos);
+             DestroyWindow(sup_tel);
+             DestroyWindow(sup_ville);
+             DestroyWindow(sup_ind);
+             DestroyWindow(aff_rang);
+             DestroyWindow(aff_num);
+             DestroyWindow(aff_nom);
+             DestroyWindow(aff_prenom);
+             DestroyWindow(aff_date);
+             DestroyWindow(aff_rue);
+             DestroyWindow(aff_ville);
+             DestroyWindow(aff_code_pos);
+             DestroyWindow(aff_mail);
+             DestroyWindow(position);
+
+
+
+
+
+                }
+
+                else
+                {
+                    DestroyWindow(a);
+             DestroyWindow(b);
+             DestroyWindow(num);
+             DestroyWindow(d);
+             DestroyWindow(nom);
+             DestroyWindow(f);
+             DestroyWindow(prenom);
+            DestroyWindow(z);
+             DestroyWindow(jour);
+             DestroyWindow(mois);
+             DestroyWindow(annee);
+             DestroyWindow(h);
+             DestroyWindow(i);
+             DestroyWindow(rue);
+             DestroyWindow(k);
+             DestroyWindow(ville);
+             DestroyWindow(m);
+              DestroyWindow(code_pos);
+             DestroyWindow(o);
+             DestroyWindow(mail);
+             DestroyWindow(y);
+             DestroyWindow(position);
+             DestroyWindow(s);
+             DestroyWindow(t);
+            DestroyWindow(ind);
+             DestroyWindow(sup_pos);
+             DestroyWindow(sup_tel);
+             DestroyWindow(sup_ville);
+             DestroyWindow(sup_ind);
+             DestroyWindow(aff_rang);
+             DestroyWindow(aff_num);
+             DestroyWindow(aff_nom);
+             DestroyWindow(aff_prenom);
+             DestroyWindow(aff_date);
+             DestroyWindow(aff_rue);
+             DestroyWindow(aff_ville);
+             DestroyWindow(aff_code_pos);
+             DestroyWindow(aff_mail);
+             DestroyWindow(position);
+
+
+                }
+
+}
+
+/*int bissextile()
+{
+GetWindowText(annee,textsaved,20);
+
+if(atoi(textsaved)%400!=0)
+{
+
+    GetWindowText(mois,textsaved,20);
+    if(atoi(textsaved)>=13 ||atoi(textsaved)==0)
+        {
+            MessageBox(hwnd,"erreur Date","erreur",MB_OK);
+        }
+    else if
+    {
+            GetWindowText(jour,textsaved,20);
+            if(atoi(textsaved)>=31 ||atoi(textsaved)==0)
+        {
+            MessageBox(hwnd,"erreur Date","erreur",MB_OK);
+        }
+
+    }
+    if (atoi(textsaved)==2)
+    {
+
+        GetWindowText(jour,textsaved,20);
+        if (atoi(textsaved)>=29)
+        {
+            MessageBox(hwnd,"erreur Date","erreur",MB_OK);
+        }
+
+
+    }
+
+    //strncpy()
+//printf("l'année %d est bissextile",an);
+}
+else
+{
+//printf("l'année %d n'est pas bissextile ",an);
+}
+}*/
+
+void verif_dn()
+{
+
+    /*
+    GetWindowText(jour,textsaved,20);
+    test_jour=atoi(textsaved);
+    GetWindowText(mois,textsaved,20);
+    test_mois=atoi(textsaved);
+    GetWindowText(annee,textsaved,20);
+    test_annee=atoi(textsaved);
+    int x=1;
+   int jmax;
+   if (test_mois>=13)
+   {
+       x=0;
+   }
+   if (test_jour>31)
+   {
+        x=0;
+
+   }
+   if(test_mois==1 || test_mois==3 || test_mois==5 || test_mois==7 || test_mois==8 || test_mois==10 || test_mois==12)
+   {
+       jmax=31;
+       if(test_jour>31)
+       {
+           x=0;
+       }
+   }
+   else if (test_mois==4 || test_mois==6 || test_mois==9 || test_mois==11)
+   {
+       jmax=30;
+       if(test_jour>30)
+       {
+           x=0;
+       }
+   }
+   else if (test_mois==2)
+   {
+       if(test_annee%4)
+       {
+           jmax=28;
+           if(test_jour>28)
+           {
+               x=0;
+           }
+
+
+       }
+
+        else if (test_annee%4==0)
+        {
+             jmax=29;
+             if(test_jour>29)
+           {
+               x=0;
+           }
+
+
+        }
+
+   }
+
+//printf("%d %d %d %d",x,test_jour,test_mois,test_annee);
+if(x==0)
+{
+        //return 0;
+        MessageBox(hwnd,"date non valide","Erreur",MB_OK);
+}
+
+*/
+
+
+/*
+else
+{
+    return 1;
+}
+*/
+
+
+}
+/*void verif_dat()
+{
+    if(valide_dn()==0)
+    {
+        MessageBox(hwnd,"erreur date","erreur",MB_OK);
+    }
+    //GetWindowText(date_naissance,textsaved,20);
+
+}*/
+/*
+void verif_champs( int verif_num(), int verif_dn())
+{
+    if(verif_num()==0 || verif_dn()==0)
+    {
+
+    }
+}
+*/
+
+/*
+void verif_email()
+{
+    GetWindowText(mail,textsaved,20);
+    int i,t=0,j;
+    for (j=0;j<strlen(textsaved);j++)
+    {
+        if (textsaved[j]=='@')
+            t++;
+    }
+    if (t!=1 || strlen(textsaved)==0)
+        MessageBox(hwnd,"Email non valide ou champs vide","Erreur Email",MB_OK);
+    else
+        if (textsaved[1]=='@' || strlen(textsaved)==0)
+            MessageBox(hwnd,"Email non valide ou champ vide","Erreur Email",MB_OK);
+        else
+            for(i=1;i<strlen(textsaved)-5;i++)
+            {
+                if (textsaved[i]=='@')
+                {
+                    GetWindowText(mail,reper.email,20);
+                    puts(reper.email);
+                }
+
+            }
+            //puts(reper.numtel);
+            //return reper;
+           // puts(reper.numtel);
+           // puts(reper.nom);
+           // puts(reper.prenom);
+           // puts(reper.dn);
+           // puts(reper.adresse.rue);
+           // puts(reper.adresse.ville);
+           // puts(reper.adresse.codep);
+           // puts(reper.email);
+
+}
+*/
+/*
+void verif_nom()
+{
+    repertoire reper;
+    GetWindowText(nom,textsaved,20);
+    if(strlen(textsaved)==0)
+    {
+        MessageBox(hwnd,"Champ vide","Erreur nom",MB_OK);
+        return 0;
+    }
+    else
+    {
+        GetWindowText(nom,reper.nom,20);
+        puts(reper.nom);
+        return 1;
+
+    }
+}
+
+
+void verif_prenom()
+{
+    repertoire reper;
+    GetWindowText(nom,textsaved,20);
+    if(strlen(textsaved)==0)
+    {
+        MessageBox(hwnd,"Champ vide","Erreur Prenom",MB_OK);
+    }
+    else
+    {
+        GetWindowText(prenom,reper.prenom,20);
+        puts(reper.prenom);
+    }
+}
+
+/*
+void verif_rue()
+{
+    GetWindowText(rue,textsaved,20);
+    if(strlen(textsaved)==0)
+    {
+        MessageBox(hwnd,"Champ vide","Erreur Rue",MB_OK);
+    }
+    else
+    {
+        GetWindowText(rue,reper.adresse.rue,20);
+        puts(reper.adresse.rue);
+    }
+}
+*/
+
+/*
+void verif_ville()
+{
+    GetWindowText(ville,textsaved,20);
+    if(strlen(textsaved)==0)
+    {
+        MessageBox(hwnd,"Champ vide","Erreur Ville",MB_OK);
+    }
+    else
+    {
+        GetWindowText(ville,reper.adresse.ville,20);
+        puts(reper.adresse.ville);
+    }
+}
+*/
+/*
+int verif_code_pos()
+{
+    GetWindowText(code_pos,textsaved,20);
+    if(strlen(textsaved)==0 || strlen(textsaved)!=4)
+    {
+        MessageBox(hwnd," Code postal < à 4 ou Champ vide","Erreur Code Postal",MB_OK);
+    }
+    else
+    {
+        GetWindowText(code_pos,reper.adresse.codep,20);
+        puts(reper.adresse.codep);
+
+    }
+}
+*/
+
+
+
+/******************Fonction Creation******************/
+/*
+liste creation_ajouter_pos(liste l)
+{
+    //int pos;
+    repertoire reper1;
+    //taille=taille_liste(l);
+    reper1=saisie_info(l);
+   // printf("\n%d\n",taille);
+/****verfication position********/
+
+
+            //do
+            //{
+
+
+
+
+                      //} while(atoi(textsaved)>t+1 || atoi(textsaved)==0  );
+
+                      //return 0;
+/*
+
+        if(pos==1)
+        {
+            l=insere_tete(l,reper1);
+
+        }
+
+        else
+            if(pos==taille+1)
+
+            {
+                                l=insere_queue(l,reper1);
+
+            }
+            else
+            {
+                l=insere_pos(l,reper1,pos);
+            }
+
+
+                //printf("\n%d\n",t);
+
+
+    return l;
+}
+*/
+
+
+
+/*****ajouter tete****/
+
+
+liste ajouter_tete(liste l)
+{
+    int t;
+    repertoire reper;
+    t=taille_liste(l);
+
+
+    GetWindowText(num,textsaved,20); // c: text fiel ; rep.numtel : placement d'enregistrement ; 20 : 20-1=19 le nombre des caractéres lire
+                      if(strlen(textsaved)!=8 || strlen(textsaved)==0 || recherche_tel(l,textsaved))
+                      {
+
+                          MessageBox(hwnd,"le numéro est < à 8 ou  le numéro est déja exsit ou le champ numéro est vide","Erreur Numéro",MB_OK);
+
+                      }
+                      else
+                      {
+                        GetWindowText(num,reper.numtel,20);
+                        puts(reper.numtel);
+
+    GetWindowText(nom,textsaved,20);
+    if(strlen(textsaved)==0)
+    {
+        MessageBox(hwnd,"Champ vide","Erreur nom",MB_OK);
+
+    }
+    else
+    {
+        GetWindowText(prenom,reper.nom,20);
+        puts(reper.nom);
+        GetWindowText(prenom,reper.prenom,20);
+    if(strlen(reper.prenom)==0)
+    {
+        MessageBox(hwnd,"Champ vide","Erreur Prenom",MB_OK);
+    }
+    else
+    {
+        GetWindowText(prenom,reper.prenom,20);
+        puts(reper.prenom);
+        GetWindowText(rue,textsaved,20);
+    if(strlen(textsaved)==0)
+    {
+        MessageBox(hwnd,"Champ vide","Erreur Rue",MB_OK);
+    }
+    else
+    {
+        GetWindowText(rue,reper.adresse.rue,20);
+        puts(reper.adresse.rue);
+        GetWindowText(ville,textsaved,20);
+    if(strlen(textsaved)==0)
+    {
+        MessageBox(hwnd,"Champ vide","Erreur Ville",MB_OK);
+    }
+    else
+    {
+        GetWindowText(ville,reper.adresse.ville,20);
+        puts(reper.adresse.ville);
+        GetWindowText(code_pos,textsaved,20);
+    if(strlen(textsaved)==0 || strlen(textsaved)!=4)
+    {
+        MessageBox(hwnd," Code postal < à 4 ou Champ vide","Erreur Code Postal",MB_OK);
+    }
+    else
+    {
+        GetWindowText(code_pos,reper.adresse.codep,20);
+        puts(reper.adresse.codep);
+        GetWindowText(mail,textsaved,20);
+
+        if(verif_mail(textsaved)!=1)
+            MessageBox(hwnd,"votre E-Mail non valide","erreur",MB_OK);
+       else
+       {
+           GetWindowText(mail,reper.email,20);
+           puts(reper.email);
+           l=insere_tete(l,reper);
+           MessageBox(hwnd,"La mise à jour a été effectuer avec succées", "Mabrouk", MB_OK | MB_ICONQUESTION );
+       }
+/****verfication position********/
+//        reper1=saisie_info(l);
+
+
+
+                printf("\n%d\n",t);
+
+
+}
+    }
+    }
+    }
+    }
+                      }
+                      return l;
+}
+
+/******ajouter queue*****/
+liste ajouter_queue(liste l)
+{
+    int t;
+    repertoire reper;
+    t=taille_liste(l);
+
+
+    GetWindowText(num,textsaved,20); // c: text fiel ; rep.numtel : placement d'enregistrement ; 20 : 20-1=19 le nombre des caractéres lire
+                      if(strlen(textsaved)!=8 || strlen(textsaved)==0 || recherche_tel(l,textsaved))
+                      {
+
+                          MessageBox(hwnd,"le numéro est < à 8 ou  le numéro est déja exsit ou le champ numéro est vide","Erreur Numéro",MB_OK);
+
+                      }
+                      else
+                      {
+                        GetWindowText(num,reper.numtel,20);
+                        puts(reper.numtel);
+
+    GetWindowText(nom,textsaved,20);
+    if(strlen(textsaved)==0)
+    {
+        MessageBox(hwnd,"Champ vide","Erreur nom",MB_OK);
+
+    }
+    else
+    {
+        GetWindowText(prenom,reper.nom,20);
+        puts(reper.nom);
+        GetWindowText(prenom,reper.prenom,20);
+    if(strlen(reper.prenom)==0)
+    {
+        MessageBox(hwnd,"Champ vide","Erreur Prenom",MB_OK);
+    }
+    else
+    {
+        GetWindowText(prenom,reper.prenom,20);
+        puts(reper.prenom);
+        GetWindowText(rue,textsaved,20);
+    if(strlen(textsaved)==0)
+    {
+        MessageBox(hwnd,"Champ vide","Erreur Rue",MB_OK);
+    }
+    else
+    {
+        GetWindowText(rue,reper.adresse.rue,20);
+        puts(reper.adresse.rue);
+        GetWindowText(ville,textsaved,20);
+    if(strlen(textsaved)==0)
+    {
+        MessageBox(hwnd,"Champ vide","Erreur Ville",MB_OK);
+    }
+    else
+    {
+        GetWindowText(ville,reper.adresse.ville,20);
+        puts(reper.adresse.ville);
+        GetWindowText(code_pos,textsaved,20);
+    if(strlen(textsaved)==0 || strlen(textsaved)!=4)
+    {
+        MessageBox(hwnd," Code postal < à 4 ou Champ vide","Erreur Code Postal",MB_OK);
+    }
+    else
+    {
+        GetWindowText(code_pos,reper.adresse.codep,20);
+        puts(reper.adresse.codep);
+        GetWindowText(mail,textsaved,20);
+
+        if(verif_mail(textsaved)!=1)
+            MessageBox(hwnd,"votre E-Mail non valide","erreur",MB_OK);
+       else
+       {
+           GetWindowText(mail,reper.email,20);
+           puts(reper.email);
+           l=insere_queue(l,reper);
+           MessageBox(hwnd,"La mise à jour a été effectuer avec succées", "Mabrouk", MB_OK | MB_ICONQUESTION );
+       }
+                printf("\n%d\n",t);
+}
+    }
+    }
+    }
+    }
+                      }
+                      return l;
+}
+
+
+/******************Fonction Supprimer Tete du Telephone******************/
+liste supprimer_tete(liste l)
+{liste p=l;
+
+    if(l==NULL)
+        printf("\n Liste Vide\n");
+    else
+    {
+        l=l->suiv;
+        free(p);
+    }
+    return l;
+}
+
+/******************Fonction Supprimer Queue du Telephone******************/
+liste supprimer_queue(liste l)
+{
+    liste p1=l;
+    if(!l)
+        printf("\n Liste Vide\n");
+    else
+    if(l->suiv==NULL)
+    {
+        l=l->suiv;
+        free(p1);
+    }
+    else
+    {
+        while((p1->suiv)->suiv)
+            p1=p1->suiv;
+        free(p1->suiv);
+        p1->suiv=NULL;
+    }
+    return l;
+}
+
+/******************Fonction Suppression Pos du Telephone******************/
+void suppression_pos_tel(liste l,int pos)
+{
+
+    liste p1=l,p2;
+    int i=1;
+    taille=taille_liste(l);
+
+
+    if(pos!=1&&pos!=taille)
+    {
+        while(i<pos-1)
+        {
+            i++;
+            p1=p1->suiv;
+        }
+        p2=p1->suiv;
+        p1->suiv=p2->suiv;
+        free(p2);
+    }
+
+}
+
+
+/******************Fonction Suppression du Telephone Donne******************/
+liste suppression_tel(liste l,char num[])
+{
+    liste p1=l,p2;
+    int ok=0;
+
+    if(strcmp(p1->info.numtel,num)==0)
+    {
+        l=supprimer_tete(l);
+        MessageBox(hwnd,"suppression de la téte est terminer","suppression succeés",MB_OK);
+    }
+
+    else
+    {
+        while(p1->suiv)
+        {
+            if(strcmp(p1->suiv->info.numtel,num)==0)
+            {
+                ok=1;
+                break;
+            }
+            else
+                p1=p1->suiv;
+        }
+
+        if(ok==1)
+        {
+            p2=p1->suiv;
+            p1->suiv=p2->suiv;
+            free(p2);
+            MessageBox(hwnd,"suppression terminer","suppression succeés",MB_OK);
+        }
+        else
+            MessageBox(hwnd,"Ce Numéro n'exist pas"," Erreur suppression",MB_OK);
+    }
+    return l;
+}
+
+/******************Fonction Suppression du Ville Donnee******************/
+liste suppression_ville(liste l,char v[])
+{
+    liste p1=l,p2=l,p3=l;
+    for (p3=l;p3;p3=p3->suiv)
+    {
+        if(strcmp(p1->info.adresse.ville,v)==0)
+        {
+            l=supprimer_tete(l);
+            break;
+
+        }
+        else
+        {
+            p1=p1->suiv;
+
+        while(p1)
+        {
+            if(strcmp(p1->info.adresse.ville,v)==0)
+            {
+                while(p2->suiv!=p1)
+                    p2=p2->suiv;
+                    p2->suiv=p1->suiv;
+                    free(p1);
+            }
+            p1=p1->suiv;
+        }
+        p1=l;
+    }
+    }
+
+    return l;
+}
+
+/******************Fonction Suppression d'un Indicatif Donne******************/
+liste suppression_indicatif(liste l,char indi[])
+{
+    liste p1=l,p2=l,p3=l;
+    long int val,val2,num;
+    num=atol(indi);
+    for (p3=l;p3;p3=p3->suiv)
+    {
+        val=atol(p1->info.numtel);
+        if(val/1000000==num)
+        {
+            l=supprimer_tete(l);
+          p1=p1->suiv;
+
+        }
+        else
+        {
+
+        while(p1)
+        {
+            val2=atol(p1->info.numtel);
+            if(val2/1000000==num)
+            {
+                while(p2->suiv!=p1)
+                p2=p2->suiv;
+                p2->suiv=p1->suiv;
+                free(p1);
+            }
+            p1=p1->suiv;
+        }
+        p1=l;
+        }
+    }
+
+    return l;
+}
+
+
+
+/******************Fonction Suppression Pos du Telephone******************/
+void suppression_pos(liste l,int pos)
+{
+    liste p1=l,p2;
+    int i=1;
+    if(pos!=1&&pos!=taille_liste(l))
+    {
+        while(i<pos-1)
+        {
+            i++;
+            p1=p1->suiv;
+        }
+        p2=p1->suiv;
+        p1->suiv=p2->suiv;
+        free(p2);
+    }
+}
+
+
+
+
+/******************Fonction Modification du Telephone Donne******************/
+void modification_tel_donne(liste l,char nump[10], char numnouv[10] )
+{
+    liste p1=l;
+    int ok=0;
+    while (p1&&ok==0)
+    {
+        if(strcmp(p1->info.numtel,nump)==0)
+        {
+            strcpy(p1->info.numtel,numnouv);
+            ok=1;
+        }
+        else
+            p1=p1->suiv;
+    }
+}
+
+/******************Fonction Modification d'une Adresse Donnee******************/
+
+void modification_adresse_donnee(liste l,char nump[10],adr nvadresse)
+{
+    liste p1=l;
+    int ok=0;
+    while (p1&&ok==0)
+    {
+        if(strcmp(p1->info.numtel,nump)==0)
+        {
+            strcpy(p1->info.adresse.rue,nvadresse.rue);
+            strcpy(p1->info.adresse.codep,nvadresse.codep);
+            strcpy(p1->info.adresse.ville,nvadresse.ville);
+            ok=1;
+        }
+        else
+            p1=p1->suiv;
+    }
+}
+
+
+
+/******************Fonction Affiche d'un Telephone donne******************/
+
+void affiche_tel_donne(liste l,char nump[10])
+{
+
+    printf("\nTel\t\tNom\tPrenom\t\tDate de naissance\tAdresse\t\t\tEmail\n\n");
+    affiche1(l,nump);
+}
+
+/******************Fonction Affiche d'un Nom Donne******************/
+
+void affiche_nom_donne(liste l,char nvnom[10])
+{
+
+    liste p1=l;
+    printf("\nTel\t\tNom\tPrenom\t\tDate de naissance\tAdresse\t\t\tEmail\n\n");
+    while(p1)
+    {
+        if (strcmp(p1->info.nom,nvnom)==0)
+            affiche1(l,p1->info.numtel);
+        p1=p1->suiv;
+    }
+}
+
+
+
+/*
+void enregistrer_indicatif(liste l,char x[])
+{
+        liste p1=l;
+    long int val,indi;
+   // indi=atol(x); // deux nombre
+   char ch[20];
+    FILE *fp;
+    int i=0;
+    fp=fopen("affiche.txt","w");
+    while(l)
+    {
+        val=atol(p1->info.numtel);
+        indi=val/1000000;
+        ltoa(indi,ch,10);
+        if(strcmp(x,ch)==0)
+        {
+            i++;
+        fprintf(fp,"%d | %s %s %s %s %s %s %s\n",i,l->info.numtel,l->info.nom,l->info.prenom,l->info.adresse.rue,l->info.adresse.ville,l->info.adresse.codep,l->info.email);
+        fprintf(fp,"-----------------------------------------\n");
+        }
+
+        l=l->suiv;
+
+    }
+    fclose(fp);
+    //printf("%s",ch);
+
+}
+
+
+*/
+
+/******************Fonction Affiche d'un Indicatif Donne******************/
+/*
+void enregistrer_indicatif(liste l, char ind[10])
+{
+    FILE *fp;
+    int i=0;
+    fp=fopen("affiche.txt","w");
+    liste p1=l;
+    long int val,num;
+    num=atol(ind);
+    printf("\nTel\t\tNom\tPrenom\t\tDate de naissance\tAdresse\t\t\tEmail\n\n");
+    while(p1)
+    {
+        val=atol(p1->info.numtel);
+        if (val/1000000==num)
+        {
+                        affiche1(l,p1->info.numtel);
+            i++;
+        fprintf(fp,"%d | %s %s %s %s %s %s %s\n",i,l->info.numtel,l->info.nom,l->info.prenom,l->info.adresse.rue,l->info.adresse.ville,l->info.adresse.codep,l->info.email);
+        fprintf(fp,"-----------------------------------------\n");
+        }
+        p1=p1->suiv;
+
+
+}
+        fclose(fp);
+
+
+}
+*/
+/******************Fonction Affiche d'une Ville Donnee******************/
+
+void affiche_ville_donne(liste l,adr nv)
+{
+    liste p1=l;
+
+    printf("\nTel\t\tNom\tPrenom\t\tDate de naissance\tAdresse\t\t\tEmail\n\n");
+    while(p1)
+    {
+        if (strcmp(p1->info.adresse.ville,nv.ville)==0)
+            affiche1(l,p1->info.numtel);
+        p1=p1->suiv;
+    }
+}
+
+
+
+
+/******************Fonction Affiche1******************/
+void affiche1(liste l,char x[])
+{
+    liste p=l;
+    while(p)
+    {
+        if (strcmp(x,p->info.numtel)==0)
+        {
+            printf("%s\t%s\t%s\t\t%s %s %s\t%s\n",p->info.numtel,p->info.nom,p->info.prenom,p->info.adresse.rue,p->info.adresse.ville,p->info.adresse.codep,p->info.email);
+            break;
+        }
+        else
+            p=p->suiv;
+    }
+}
+
+
+
+
+/******************Fonction Recherche Nom******************/
+liste recherche_nom(liste l, char mat[])
+{
+    liste p=l;
+    while(p)
+    {
+        if(strcmp(p->info.nom,mat)==0)
+            return p;
+        p=p->suiv;
+    }
+    return NULL;
+}
+
+
+/******************Fonction Recherche Indicatif******************/
+liste recherche_indicatif(liste l, char mat[])
+{
+    liste p=l;
+    long int val,num;
+    num=atol(mat);
+    while(p)
+    {
+        val=atol(p->info.numtel);
+        if(val/1000000==num)
+            return p;
+        p=p->suiv;
+    }
+    return NULL;
+}
+
+
+/******************Fonction Recherche Ville******************/
+liste recherche_ville(liste l, char mat[])
+{
+    liste p=l;
+    while(p)
+    {
+        if(strcmp(p->info.adresse.ville,mat)==0)
+            return p;
+        p=p->suiv;
+    }
+    return NULL;
+}
+
+
+/******************Fonction Construction d'une Chaine******************/
+int construction(char *ligne,int pos,char s,char *ch)
+{
+    int i,j;
+    for(i=pos,j=0;ligne[i]!=s;i++)
+            ch[j++]=ligne[i];
+        ch[j]='\0';
+    //puts(ch);
+    return i+1;
+}
+
+/******************Fonction Enregistrement d'un Repertoire******************/
+void enregistrement_repertoire(liste l)
+{
+    int i;
+    FILE *fp;
+    fp=fopen("rep.txt","w");
+    while(l)
+    {
+
+        fprintf(fp," %s %s %s %s %s %s %s \n",l->info.numtel,l->info.nom,l->info.prenom,l->info.adresse.rue,l->info.adresse.ville,l->info.adresse.codep,l->info.email);
+        l=l->suiv;
+    }
+    fclose(fp);
+    printf ("\nEnregistrement de la liste dans le fichier %s \n","rep.txt");
+}
+
+/******************Fonction Recuperation d'un Repertoire******************/
+
+liste recuperation_repertoire()
+{
+
+    FILE *fp;
+    liste p=NULL;
+    repertoire e;
+    int pos;
+    char ligne[100];
+    char ch[5];
+    char etape[3];
+    fp=fopen("rep.txt","r");
+
+    if(fp==NULL)
+    {
+         printf("LISTE REPERTOIRE VIDE\\");
+         //ok=1;
+         //v_rec=1;
+    }
+
+    else
+       while(fgets(ligne,100,fp)!=NULL)
+       {
+            pos=construction(ligne,1,' ',e.numtel);
+            pos=construction(ligne,pos,' ',e.nom);
+            pos=construction(ligne,pos,' ',e.prenom);
+            //pos=construction(ligne,pos,'/',ch);
+//            e.dn.j=atoi(ch);
+            //pos=construction(ligne,pos,'/',ch);
+        //    e.dn.m=atoi(ch);
+           // pos=construction(ligne,pos,'|',ch);
+         //   e.dn.a=atoi(ch);
+            pos=construction(ligne,pos,' ',e.adresse.rue);
+            pos=construction(ligne,pos,' ',e.adresse.ville);
+            pos=construction(ligne,pos,' ',e.adresse.codep);
+            pos=construction(ligne,pos,' ',e.email);
+            p=insere_queue(p,e);
+            //v_rec=1;
+       }
+    fclose(fp);
+
+    return p;
+}
+
+
+void enre_tt(liste l)
+{
+    FILE *fp;
+    int i=0;
+    fp=fopen("affiche.txt","w");
+    fprintf(fp,"\n");
+    while(l)
+    {
+        i++;
+        fprintf(fp,"%d | %s %s %s %s %s %s %s\n",i,l->info.numtel,l->info.nom,l->info.prenom,l->info.adresse.rue,l->info.adresse.ville,l->info.adresse.codep,l->info.email);
+        fprintf(fp,"-----------------------------------------\n");
+        l=l->suiv;
+
+    }
+    fclose(fp);
+
+}
+
+
+
+void enregistrer_ville(liste l,char x[])
+{
+    FILE *fp;
+    int i=0;
+    fp=fopen("affiche.txt","w");
+    while(l)
+    {
+        if(strcmp(x,l->info.adresse.ville)==0)
+        {
+            i++;
+        fprintf(fp,"%d | %s %s %s %s %s %s %s\n",i,l->info.numtel,l->info.nom,l->info.prenom,l->info.adresse.rue,l->info.adresse.ville,l->info.adresse.codep,l->info.email);
+        fprintf(fp,"-----------------------------------------\n");
+        }
+
+        l=l->suiv;
+
+    }
+    fclose(fp);
+
+}
+
+
+void enregistrer_nom(liste l,char x[])
+{
+    FILE *fp;
+    int i=0;
+    fp=fopen("affiche.txt","w");
+    while(l)
+    {
+        if(strcmp(x,l->info.nom)==0)
+        {
+            i++;
+        fprintf(fp,"%d | %s %s %s %s %s %s %s\n",i,l->info.numtel,l->info.nom,l->info.prenom,l->info.adresse.rue,l->info.adresse.ville,l->info.adresse.codep,l->info.email);
+        fprintf(fp,"-----------------------------------------\n");
+        }
+
+        l=l->suiv;
+
+    }
+    fclose(fp);
+
+}
+
+
+
+void enregistrer_tel(liste l,char x[])
+{
+    FILE *fp;
+    int i=0;
+    fp=fopen("affiche.txt","w");
+    fprintf(fp,"\n");
+    while(l)
+    {
+        if(strcmp(x,l->info.numtel)==0)
+        {
+            i++;
+        fprintf(fp,"%d | %s %s %s %s %s %s %s\n",i,l->info.numtel,l->info.nom,l->info.prenom,l->info.adresse.rue,l->info.adresse.ville,l->info.adresse.codep,l->info.email);
+        fprintf(fp,"-----------------------------------------\n");
+        }
+
+        l=l->suiv;
+
+    }
+    fclose(fp);
+
+}
+
+
+/*
+void enregistrer_indicatif(liste l,char x[])
+{
+    FILE *fp;
+    int i=0;
+    fp=fopen("affiche.txt","w");
+    while(l)
+    {
+        if(strcmp(x,l->info.numtel)==0)
+        {
+            i++;
+        fprintf(fp,"%d | %s %s %s %s %s %s %s\n",i,l->info.numtel,l->info.nom,l->info.prenom,l->info.adresse.rue,l->info.adresse.ville,l->info.adresse.codep,l->info.email);
+        fprintf(fp,"-----------------------------------------\n");
+        }
+
+        l=l->suiv;
+
+    }
+    fclose(fp);
+
+}
+
+*/
+
+#endif // SAISIE_H_INCLUDED
